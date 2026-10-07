@@ -20,3 +20,4 @@ pip install -r requirements.txt
 3. Commit small, clear changes and push the branch.
 4. Open a Pull Request; at least one teammate reviews it before merging.
 5. Pull `main` often to stay in sync: `git pull origin main`
+6.  this is a test
