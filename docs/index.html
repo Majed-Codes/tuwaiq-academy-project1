@@ -391,30 +391,30 @@ pre .k{color:var(--ac);font-weight:500}pre .c{color:var(--mut)}
  </div>
 </section>
 
-<section class="s" data-sp="2" data-pt data-t="Nutrition" data-n="At rest the body needs the BMR; activity multiplies it into daily calories.|Drag the coloured numbers in the formula: the bar segments with the same colour move.|Click the activity word to cycle low, moderate, high.">
+<section class="s" data-sp="2" data-pt data-t="Nutrition" data-n="At rest the body needs the BMR; the activity level multiplies it into daily calories.|Drag the coloured numbers in the formula: the bar segments with the same colour move.|Click the activity level to cycle through the five levels (×1.2 up to ×1.9). Each level has its own meal plan.">
  <div class="in">
   <h2>Nutrition</h2>
-  <p class="say" style="font-size:clamp(22px,min(2.6vw,4.6vh),38px)">At rest, <span data-v="name"></span>’s body uses <b data-v="bmr"></b> kcal a day. With <button class="word" data-k="actcycle"><span data-v="actw"></span></button> activity, that becomes <b style="text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px" data-v="kc"></b> kcal.</p>
+  <p class="say" style="font-size:clamp(22px,min(2.6vw,4.6vh),38px)">At rest, <span data-v="name"></span>’s body uses <b data-v="bmr"></b> kcal a day. At the <button class="word" data-k="actcycle"><span data-v="actw"></span></button> level, that becomes <b style="text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px" data-v="kc"></b> kcal.</p>
   <div class="bars">
    <div class="brow"><span class="lab">At rest</span><div class="bar"><i id="bw"></i><i id="bh"></i><i id="ba"></i></div><b data-v="bmr"></b></div>
    <div class="brow"><span class="lab">Per day</span><div class="bar"><i id="bd"></i></div><b data-v="kc"></b></div>
   </div>
-  <p class="fml">BMR = 10 × <span class="sc c-w" data-b="w" data-min="30" data-max="200" data-v="w"></span> kg + 6.25 × <span class="sc c-h" data-b="h" data-min="100" data-max="220" data-v="h"></span> cm − 5 × <span class="sc c-a" data-b="age" data-min="1" data-max="100" data-v="age"></span> yrs <span data-v="sexc"></span><br>Daily = BMR × <span data-v="mult"></span> &nbsp;<span class="mut">(<span data-v="actw"></span> activity)</span></p>
-  <p class="hint">Suggested: <b style="color:var(--fg)" data-v="meal"></b> · Mifflin-St Jeor equation with activity multipliers. General suggestions only.</p>
+  <p class="fml">BMR = 10 × <span class="sc c-w" data-b="w" data-min="30" data-max="200" data-v="w"></span> kg + 6.25 × <span class="sc c-h" data-b="h" data-min="100" data-max="220" data-v="h"></span> cm − 5 × <span class="sc c-a" data-b="age" data-min="1" data-max="100" data-v="age"></span> yrs <span data-v="sexc"></span><br>Daily = BMR × <span data-v="mult"></span> &nbsp;<span class="mut">(<span data-v="actw"></span>)</span></p>
+  <p class="hint">Weight loss lunch: <b style="color:var(--fg)" data-v="meal"></b> · Mifflin-St Jeor equation with 5 activity levels. General suggestions only.</p>
  </div>
 </section>
 
-<section class="s" data-sp="2" data-pt data-t="Sports readiness" data-n="Three rings: activity (10/20/30), sleep (up to 40), BMI (10–30). Score out of 100.|Drag the sleep number down to 4 and watch the sleep ring.|75+ high, 50+ moderate, else low. Rule-based, not clinical. Hand over to speaker 3.">
+<section class="s" data-sp="2" data-pt data-t="Sports readiness" data-n="Three rings: activity (up to 40), sleep (up to 30), BMI (up to 30). Score out of 100.|Drag the sleep number down to 4 and watch the sleep ring. Click the activity level: sedentary is always 'not ready, start training first'.|80+ ready, 60+ ready but take it easy, 40+ needs more preparation. Drag the run distance and pace for calories and water. Hand over to speaker 3.">
  <div class="in">
   <h2>Sports readiness</h2>
   <div class="grid" style="grid-template-columns:auto 1fr;align-items:center;gap:clamp(24px,4.5vw,72px)">
    <div class="rings"><svg viewBox="0 0 220 220"><circle class="tr" cx="110" cy="110" r="96" stroke="var(--ac)"/><circle class="fl" id="r1" cx="110" cy="110" r="96" stroke="var(--ac)"/><circle class="tr" cx="110" cy="110" r="76" stroke="var(--ac3)"/><circle class="fl" id="r2" cx="110" cy="110" r="76" stroke="var(--ac3)"/><circle class="tr" cx="110" cy="110" r="56" stroke="var(--ac2)"/><circle class="fl" id="r3" cx="110" cy="110" r="56" stroke="var(--ac2)"/></svg><div class="rc"><b data-v="sc"></b><span class="lab">of 100</span></div></div>
    <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,24px)">
-    <p class="say" style="font-size:clamp(22px,min(2.6vw,4.6vh),38px)"><span data-v="name"></span> slept <span class="sc c-h" data-b="sleep" data-min="3" data-max="10" data-v="sleep"></span> hours and trains at a <button class="word" data-k="actcycle"><span data-v="actw"></span></button> level.</p>
+    <p class="say" style="font-size:clamp(22px,min(2.6vw,4.6vh),38px)"><span data-v="name"></span> sleeps <span class="sc c-h" data-b="sleep" data-min="3" data-max="10" data-v="sleep"></span> hours and has a <button class="word" data-k="sactcycle"><span data-v="sactw"></span></button> activity level (<span data-v="sdays"></span> a week).</p>
     <input type="range" id="slr" min="3" max="10" style="max-width:420px;accent-color:var(--ac3)">
-    <div class="leg"><span><i style="background:var(--ac)"></i>Activity <b data-v="sA"></b>/30</span><span><i style="background:var(--ac3)"></i>Sleep <b data-v="sS"></b>/40</span><span><i style="background:var(--ac2)"></i>BMI <b data-v="sB"></b>/30</span></div>
-    <div><div class="verdict" style="--dc:var(--fg)"><span data-v="lv"></span> readiness</div><p style="margin-top:6px" data-v="rec"></p></div>
-    <p class="hint">Burns about <b style="color:var(--fg)" data-v="burn"></b> kcal in 30 min · drink ~500 ml water · Sleep + activity + BMI → readiness → recovery. Rule-based scoring, not clinical AI.</p>
+    <div class="leg"><span><i style="background:var(--ac)"></i>Activity <b data-v="sA"></b>/40</span><span><i style="background:var(--ac3)"></i>Sleep <b data-v="sS"></b>/30</span><span><i style="background:var(--ac2)"></i>BMI <b data-v="sB"></b>/30</span></div>
+    <div><div class="verdict" style="--dc:var(--fg)" data-v="lv"></div><p style="margin-top:6px" data-v="rec"></p></div>
+    <p class="hint">A <span class="sc" data-b="dist" data-min="1" data-max="42" data-v="dist"></span> km run at <span class="sc" data-b="pace" data-min="4" data-max="12" data-v="pace"></span> min/km burns about <b style="color:var(--fg)" data-v="burn"></b> kcal · drink about <b style="color:var(--fg)" data-v="water"></b> L of water · Rule-based scoring, not clinical AI.</p>
    </div>
   </div>
  </div>
@@ -425,20 +425,21 @@ pre .k{color:var(--ac);font-weight:500}pre .c{color:var(--mut)}
  <div class="in"><div class="dvn">03</div><div><div class="lab dv-who"></div><h2 style="font-size:clamp(40px,min(6vw,10vh),90px)">Clinic &amp; demo</h2><ul class="dvl"></ul></div></div>
 </section>
 
-<section class="s" data-sp="3" data-pt data-t="Booking a visit" data-n="The clinic already knows the patient and their symptoms.|Pick department, doctor, time: the ticket prints with the name and triage priority. Toggle insurance to reprint.|Doctors and slots are demo data.">
+<section class="s" data-sp="3" data-pt data-t="Booking a visit" data-n="The clinic already knows the patient. Tick symptoms: the department and doctor are picked automatically (no symptoms: General Clinic, 3 or more: Internal Medicine).|Pick a day and a time: the ticket prints with the priority and the fee.|Fee is 150 SAR, +50 if Urgent. Toggle insurance: the patient pays 20%.">
  <div class="in">
   <h2>Booking a visit</h2>
-  <p class="mono hint">Symptoms → Department → Triage → Doctor → Appointment → Ticket</p>
+  <p class="mono hint">Symptoms → Department → Doctor → Triage → Appointment → Ticket</p>
   <div class="grid" style="grid-template-columns:1.2fr 1fr;align-items:start">
    <div>
-    <div class="stp" id="st1"><span class="n">1</span><div><div class="lab">Department</div><div class="row"><button class="tb sm" data-k="dep" data-val="Internal Medicine">Internal Medicine</button><button class="tb sm" data-k="dep" data-val="Chest Clinic">Chest Clinic</button><button class="tb sm" data-k="dep" data-val="Neurology">Neurology</button><button class="tb sm" data-k="dep" data-val="Orthopedics">Orthopedics</button><button class="tb sm" data-k="dep" data-val="General Clinic">General Clinic</button></div></div></div>
-    <div class="stp" id="st2"><span class="n">2</span><div><div class="lab">Doctor</div><div class="row"><button class="tb sm" data-k="doc" data-val="Doctor A">Doctor A</button><button class="tb sm" data-k="doc" data-val="Doctor B">Doctor B</button></div></div></div>
-    <div class="stp" id="st3"><span class="n">3</span><div><div class="lab">Time</div><div class="row"><button class="tb sm" data-k="slot" data-val="Today 5:00 PM">Today 5:00 PM</button><button class="tb sm" data-k="slot" data-val="Tomorrow 10:00 AM">Tomorrow 10:00 AM</button><button class="tb sm" data-k="slot" data-val="Tomorrow 1:00 PM">Tomorrow 1:00 PM</button></div></div></div>
+    <div class="stp" id="st1"><span class="n">1</span><div><div class="lab">Symptoms</div><div class="row symx"></div></div></div>
+    <div class="stp done" id="st2"><span class="n">2</span><div><div class="lab">Department &amp; doctor · picked from the symptoms</div><div class="row"><span class="tb sm on" data-v="dep"></span><span class="tb sm" data-v="doc"></span></div></div></div>
+    <div class="stp" id="st3"><span class="n">3</span><div><div class="lab">Day</div><div class="row"><button class="tb sm" data-k="day" data-val="Sunday">Sunday</button><button class="tb sm" data-k="day" data-val="Monday">Monday</button><button class="tb sm" data-k="day" data-val="Tuesday">Tuesday</button><button class="tb sm" data-k="day" data-val="Wednesday">Wednesday</button><button class="tb sm" data-k="day" data-val="Thursday">Thursday</button></div></div></div>
+    <div class="stp" id="st4"><span class="n">4</span><div><div class="lab">Time</div><div class="row"><button class="tb sm" data-k="slot" data-val="9:00">9:00</button><button class="tb sm" data-k="slot" data-val="10:00">10:00</button><button class="tb sm" data-k="slot" data-val="11:00">11:00</button><button class="tb sm" data-k="slot" data-val="1:00">1:00</button><button class="tb sm" data-k="slot" data-val="2:00">2:00</button><button class="tb sm" data-k="slot" data-val="3:00">3:00</button></div></div></div>
     <div class="stp"><span></span><div><button class="tb sm" data-k="insu">Insurance</button></div></div>
    </div>
    <div>
     <div class="printer" id="prn"><span><i></i>VISIT TICKETS</span><span>HC-01</span></div>
-    <div class="paper"><div class="phint" id="phint">Choose a department, doctor and time<br>to print the ticket.</div><div class="ptk" id="ptk"></div></div>
+    <div class="paper"><div class="phint" id="phint">Choose a day and a time<br>to print the ticket.</div><div class="ptk" id="ptk"></div></div>
    </div>
   </div>
  </div>
@@ -455,7 +456,7 @@ pre .k{color:var(--ac);font-weight:500}pre .c{color:var(--mut)}
  </div>
 </section>
 
-<section class="s" data-sp="3" data-pt data-on="journey" data-t="Demo" data-n="Click Run: the patient walks through all five services.|Every value comes from the one profile. Hand over to speaker 4.">
+<section class="s" data-sp="3" data-pt data-on="journey" data-t="Demo" data-n="Click Run: the patient walks through all five services. Book a day and time on the Booking slide first to show the appointment.|Every value comes from the one profile. Hand over to speaker 4.">
  <div class="in">
   <div class="row" style="justify-content:space-between;align-items:flex-end"><h2>One patient, start to finish</h2><button class="tb" id="jgo">▶ Run</button></div>
   <div class="track" id="track"><div class="tok" id="tok"></div></div>
@@ -665,22 +666,43 @@ function drawTimer(){const t=TM.tot/1000,s=TM.sp[sp(cur)]/1000,i=sp(cur);
 $("tm").onclick=()=>key("t");
 
 /* ---------- shared patient ---------- */
-const DEF={name:"Ahmed",age:25,male:true,w:70,h:175,sleep:7,act:0,sym:[],dep:"",doc:"",slot:"",insu:false};
+const DEF={name:"Ahmed",age:25,male:true,w:70,h:175,sleep:7,act:1,sact:2,dist:5,pace:7,sym:[],day:"",slot:"",insu:false};
 const P=JSON.parse(JSON.stringify(DEF));
-const SYM=["Fever","Cough","Headache","Fatigue","Body Pain"],ACT=["low","moderate","high"],MEAL=["Light balanced meals","More protein and complex carbs","Higher carbs and protein"],REC={High:"Ready to train. Hydrate and stretch after.",Moderate:"Go light, prioritize sleep.",Low:"Rest and recover today."},PRC={Routine:"var(--ok)",Soon:"var(--warn)",Urgent:"var(--bad)"};
+const SYM=["Fever","Cough","Headache","Fatigue","Body Pain"],PRC={Routine:"var(--ok)",Soon:"var(--warn)",Urgent:"var(--bad)"};
+// same numbers as nutrition.py
+const ACT=["low activity","lightly active","moderately active","very active","extra active"],MULT=[1.2,1.375,1.55,1.725,1.9];
+const MEAL=["Mixed greens salad with grilled chicken breast, cherry tomatoes, and olive oil","Turkey or lean chicken wrap on a whole-wheat tortilla with avocado and vegetables","Quinoa bowl with grilled chicken or lean beef, roasted sweet potatoes, and vegetables","Lean beef or chicken pasta bowl with tomato-based sauce and side vegetables","Large portion of brown rice, chicken or red meat, olive oil, and nutrient-dense vegetables"];
+// same numbers as sports.py
+const SACT=["sedentary","light","moderate","high"],SDAYS=["0 days","1-2 days","3-4 days","5+ days"],SPTS=[0,15,30,40];
+// same as Clinic.py
+const DEPT={Fever:"Internal Medicine",Cough:"Chest Clinic",Headache:"Neurology",Fatigue:"Internal Medicine","Body Pain":"Orthopedics"};
+const DOC={"Internal Medicine":"Dr. Sara Alharbi","Chest Clinic":"Dr. Fahad Alqahtani","Neurology":"Dr. Noura Alshehri","Orthopedics":"Dr. Khalid Alzahrani","General Clinic":"Dr. Reem Aldosari"};
 Q(".symx").forEach(b=>b.innerHTML=SYM.map(s=>`<button class="tb" data-k="sym" data-val="${s}">${s}</button>`).join(""));
+// rounds like Python's round(): exact halves go to the even number
+function pyRound(x,nd=0){const t=x.toFixed(nd+40),[ip,fp]=t.split("."),rest=fp.slice(nd);
+ if(/^50*$/.test(rest)){const d=nd?+fp[nd-1]:+ip[ip.length-1];if(d%2==0)return Number(ip+(nd?"."+fp.slice(0,nd):""))}
+ return Number(x.toFixed(nd))}
 function calc(){
- const {age:a,w,h,male:m,sleep:sl}=P,N=P.sym.length,n=P.name.trim()||"Patient";
- const bmr=10*w+6.25*h-5*a+(m?5:-161),mult=[1.2,1.55,1.725][P.act],kc=bmr*mult,bmi=w/Math.pow(h/100,2);
- const sA=[10,20,30][P.act],sS=Math.round(Math.min(sl,8)/8*40),sB=(bmi>=18.5&&bmi<25?30:(bmi>=17&&bmi<30?20:10)),sc=sA+sS+sB;
- const lv=sc>=75?"High":sc>=50?"Moderate":"Low",burn=Math.round([3.5,6,8][P.act]*w*.5);
+ const {age:a,w,h,male:m,sleep:sl,dist,pace}=P,N=P.sym.length,n=P.name.trim()||"Patient";
+ const bmr=10*w+6.25*h-5*a+(m?5:-161),mult=MULT[P.act],kc=bmr*mult,bmi=pyRound(w/Math.pow(h/100,2),1);
+ const sA=SPTS[P.sact],sS=sl>=7?30:sl>=6?20:sl>=5?10:0,sB=(bmi>=18.5&&bmi<25)?30:(bmi>=25&&bmi<27.5)?20:bmi<30?10:0,sc=sA+sS+sB;
+ const lv=P.sact==0?"Not ready, start training first":sc>=80?"Ready":sc>=60?"Ready but take it easy":sc>=40?"Needs more preparation":"Not ready";
+ const burn=pyRound(w*dist*(pace<6?1.05:pace<9?1:.7)),water=pyRound(w*(dist*pace/60)*.01,1);
+ const tips=[];
+ if(sl<6)tips.push("Your sleep is low, aim for 7 to 9 hours");else if(sl<7)tips.push("Add one more hour of sleep");
+ if(P.sact==0)tips.push("Start with 2 days of activity in a week");else if(P.sact==1)tips.push("Try to raise your days of activity to 3 or more");
+ if(bmi>=25)tips.push("Try to lose some weight for better health and performance");else if(bmi<18.5)tips.push("Eat more to gain weight to build energy");
+ if(!tips.length)tips.push("Keep it up, you are in a good shape");
+ tips.push(dist>=21?"Rest 2 to 3 days before another run":dist>=10?"1 day is enough for you to rest":"A light walk is enough for tomorrow");
+ const syms=SYM.filter(x=>P.sym.includes(x)),dep=N==0?"General Clinic":N>=3?"Internal Medicine":DEPT[syms[0]],doc=DOC[dep];
  const fc=P.sym.includes("Fever")&&P.sym.includes("Cough"),ageP=(a>=65||a<=5)?1:0,pts=N+ageP+(fc?1:0),pr=pts>=4?"Urgent":pts>=2?"Soon":"Routine";
- return {n,a,w,h,m,sl,N,bmr,mult,kc,bmi,sA,sS,sB,sc,lv,burn,fc,ageP,pts,pr};
+ const fee=Math.round((150+(pr=="Urgent"?50:0))*(P.insu?.2:1));
+ return {n,a,w,h,m,sl,N,bmr,mult,kc,bmi,sA,sS,sB,sc,lv,burn,water,tips,dep,doc,fee,fc,ageP,pts,pr};
 }
 let R=calc();
-const V={name:()=>R.n,age:()=>P.age,w:()=>P.w,h:()=>P.h,sleep:()=>P.sleep,He:()=>P.male?"He":"She",bmi:()=>R.bmi.toFixed(1),bmr:()=>Math.round(R.bmr),kc:()=>Math.round(R.kc),mult:()=>R.mult,actw:()=>ACT[P.act],meal:()=>MEAL[P.act],sexc:()=>P.male?"+ 5":"− 161",
+const V={name:()=>R.n,age:()=>P.age,w:()=>P.w,h:()=>P.h,sleep:()=>P.sleep,He:()=>P.male?"He":"She",bmi:()=>R.bmi.toFixed(1),bmr:()=>Math.round(R.bmr),kc:()=>Math.round(R.kc),mult:()=>R.mult,actw:()=>ACT[P.act],meal:()=>MEAL[P.act],sactw:()=>SACT[P.sact],sdays:()=>SDAYS[P.sact],dist:()=>P.dist,pace:()=>P.pace,water:()=>R.water,dep:()=>R.dep,doc:()=>R.doc,sexc:()=>P.male?"+ 5":"− 161",
  symN:()=>R.N,symWord:()=>R.N==1?"symptom":"symptoms",level:()=>R.N==0?"No symptoms reported.":R.N<3?`Some symptoms reported (${R.N}).`:`Several symptoms reported (${R.N}).`,
- sc:()=>R.sc,sA:()=>R.sA,sS:()=>R.sS,sB:()=>R.sB,lv:()=>R.lv,rec:()=>REC[R.lv],burn:()=>R.burn,ageP:()=>R.ageP,fcP:()=>R.fc?1:0,pts:()=>R.pts,pr:()=>R.pr};
+ sc:()=>R.sc,sA:()=>R.sA,sS:()=>R.sS,sB:()=>R.sB,lv:()=>R.lv,rec:()=>R.tips.join(" · "),burn:()=>R.burn,ageP:()=>R.ageP,fcP:()=>R.fc?1:0,pts:()=>R.pts,pr:()=>R.pr};
 
 /* scrubbable numbers */
 Q(".sc").forEach(el=>{const b=el.dataset.b,min=+el.dataset.min,max=+el.dataset.max;let sx=null,sv=0;
@@ -694,7 +716,7 @@ Q(".sc").forEach(el=>{const b=el.dataset.b,min=+el.dataset.min,max=+el.dataset.m
 });
 document.addEventListener("click",e=>{const c=e.target.closest("[data-k]");if(!c)return;const k=c.dataset.k,v=c.dataset.val;
  if(k=="sym"){const i=P.sym.indexOf(v);i<0?P.sym.push(v):P.sym.splice(i,1)}
- else if(k=="insu")P.insu=!P.insu;else if(k=="actcycle")P.act=(P.act+1)%3;else if(k=="male")P.male=!P.male;else P[k]=v;
+ else if(k=="insu")P.insu=!P.insu;else if(k=="actcycle")P.act=(P.act+1)%5;else if(k=="sactcycle")P.sact=(P.sact+1)%4;else if(k=="male")P.male=!P.male;else P[k]=v;
  render()});
 $("nm").addEventListener("input",()=>{P.name=$("nm").value;render()});
 $("slr").addEventListener("input",()=>{P.sleep=+$("slr").value;render()});
@@ -711,7 +733,7 @@ function render(){
  if(document.activeElement!==$("nm")&&$("nm").value!==P.name)$("nm").value=P.name;
  sizeName();
  $("slr").value=P.sleep;
- Q("[data-k]").forEach(c=>{const k=c.dataset.k,v=c.dataset.val;if(k=="actcycle"||k=="male")return;c.classList.toggle("on",k=="sym"?P.sym.includes(v):k=="insu"?P.insu:P[k]===v)});
+ Q("[data-k]").forEach(c=>{const k=c.dataset.k,v=c.dataset.val;if(k=="actcycle"||k=="sactcycle"||k=="male")return;c.classList.toggle("on",k=="sym"?P.sym.includes(v):k=="insu"?P.insu:P[k]===v)});
  // header chip
  const pt=`${esc(R.n)} · ${P.age} · ${P.male?"M":"F"} · ${P.w} kg · ${P.h} cm`;
  if(pt!=lastPt){$("pt").innerHTML=pt;if(lastPt){$("pt").classList.add("chg");clearTimeout($("pt")._t);$("pt")._t=setTimeout(()=>$("pt").classList.remove("chg"),600)}lastPt=pt}
@@ -726,10 +748,10 @@ function render(){
  $("ba").style.left=X(pos-5*P.age-(P.male?0:161));$("ba").style.width=X(5*P.age+(P.male?0:161));
  $("bd").style.width=X(R.kc);
  // rings
- [["r1",R.sA/30,96],["r2",R.sS/40,76],["r3",R.sB/30,56]].forEach(([id,f,r])=>{const C=2*Math.PI*r,el=$(id);el.style.strokeDasharray=C;el.style.strokeDashoffset=C*(1-f)});
+ [["r1",R.sA/40,96],["r2",R.sS/30,76],["r3",R.sB/30,56]].forEach(([id,f,r])=>{const C=2*Math.PI*r,el=$(id);el.style.strokeDasharray=C;el.style.strokeDashoffset=C*(1-f)});
  // clinic
- ["dep","doc","slot"].forEach((k,i)=>$("st"+(i+1)).classList.toggle("done",!!P[k]));
- const ok=!!(P.dep&&P.doc&&P.slot),tk=ok?[R.n,P.dep,P.doc,P.slot,P.insu,R.pr].join("|"):"";
+ $("st1").classList.toggle("done",R.N>0);$("st3").classList.toggle("done",!!P.day);$("st4").classList.toggle("done",!!P.slot);
+ const ok=!!(P.day&&P.slot),tk=ok?[R.n,R.dep,R.doc,P.day,P.slot,P.insu,R.pr].join("|"):"";
  if(tk!==lastTk){lastTk=tk;printTicket(ok)}
  // triage
  $("tm1").classList.toggle("zero",R.N==0);$("tm2").classList.toggle("zero",!R.ageP);$("tm3").classList.toggle("zero",!R.fc);
@@ -738,9 +760,9 @@ function render(){
  // journey
  $("j1").innerHTML=`<b>${esc(R.n)}</b><br>${P.age}, ${P.male?"male":"female"}<br>${P.w} kg · ${P.h} cm`;
  $("j2").innerHTML=`<b>${R.N} ${R.N==1?"symptom":"symptoms"}</b><br>${R.N==0?"none":R.N<3?"some":"several"} reported`;
- $("j3").innerHTML=`<b>${Math.round(R.kc)} kcal</b><br>per day · ${MEAL[P.act].toLowerCase()}`;
+ $("j3").innerHTML=`<b>${Math.round(R.kc)} kcal</b><br>per day · ${ACT[P.act]}`;
  $("j4").innerHTML=`<b>${R.lv}</b><br>readiness ${R.sc}/100`;
- $("j5").innerHTML=`<b style="color:${PRC[R.pr]}">${R.pr}</b><br>`+(ok?`${esc(P.dep)}<br>${P.slot}`:`<span class="mut">not booked yet</span>`);
+ $("j5").innerHTML=`<b style="color:${PRC[R.pr]}">${R.pr}</b><br>`+(ok?`${esc(R.dep)}<br>${P.day} ${P.slot}`:`<span class="mut">not booked yet</span>`);
 }
 
 /* problem: typing forms */
@@ -786,8 +808,8 @@ function hsh(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imu
 function printTicket(ok){const t=$("ptk");$("phint").style.display=ok?"none":"grid";
  if(!ok){t.style.transition="transform .3s";t.style.transform="translateY(-102%)";return}
  const hv=hsh(lastTk);let sd=hv,bars="";for(let i=0;i<34;i++){sd=(Math.imul(sd,1103515245)+12345)>>>0;bars+=`<i style="width:${1+(sd>>>29)%3}px"></i>`}
- t.innerHTML=`<div class="r"><b>HEALTH CLUSTER</b><span>VISIT TICKET</span></div><div class="r"><span>No.</span><b>HC-${hv%9000+1000}</b></div><hr>
- <div class="r"><span>Patient</span><span>${esc(R.n)}</span></div><div class="r"><span>Department</span><span>${esc(P.dep)}</span></div><div class="r"><span>Doctor</span><span>${P.doc} (demo)</span></div><div class="r"><span>Time</span><span>${P.slot}</span></div><div class="r"><span>Priority</span><b style="color:${{Routine:"#2F7D4F",Soon:"#B7791F",Urgent:"#C2362B"}[R.pr]}">${R.pr}</b></div><div class="r"><span>Fee</span><span>${P.insu?"Insurance applied":"Standard visit fee"}</span></div><div class="bc">${bars}</div>`;
+ t.innerHTML=`<div class="r"><b>HEALTH CLUSTER</b><span>VISIT TICKET</span></div><div class="r"><span>Queue No.</span><b>${hv%40+1}</b></div><hr>
+ <div class="r"><span>Patient</span><span>${esc(R.n)}</span></div><div class="r"><span>Department</span><span>${R.dep}</span></div><div class="r"><span>Doctor</span><span>${R.doc}</span></div><div class="r"><span>Day</span><span>${P.day}</span></div><div class="r"><span>Time</span><span>${P.slot}</span></div><div class="r"><span>Priority</span><b style="color:${{Routine:"#2F7D4F",Soon:"#B7791F",Urgent:"#C2362B"}[R.pr]}">${R.pr}</b></div><div class="r"><span>Fee (SAR)</span><span>${R.fee}${P.insu?" (insurance)":""}</span></div><div class="bc">${bars}</div>`;
  t.style.transition="none";t.style.transform="translateY(-102%)";void t.offsetWidth;
  t.style.transition="transform 1.3s cubic-bezier(.3,.8,.3,1)";t.style.transform="translateY(0)";
  const p=$("prn");p.classList.add("busy");clearTimeout(p._t);p._t=setTimeout(()=>p.classList.remove("busy"),1300)}
@@ -815,23 +837,30 @@ Q("#fut .lk").forEach(b=>b.onclick=()=>{b.classList.toggle("on");fuUpd()});
 $("fall").onclick=()=>Q("#fut .lk").forEach((b,i)=>setTimeout(()=>{b.classList.add("on");fuUpd()},i*90));
 const CODE={
 HealthCluster:["base · patient info + BMI",`class HealthCluster:
-    def __init__(self, ...):
-        self._name   = ...   # encapsulated
-        self._age    = ...
-        self._gender = ...
+    def __init__(self, name, age, height, weight):
+        self.name = name
+        self.age = age
+        self.height = height   # in cm
+        self.weight = weight   # in kg
 
-    # BMI calculation`],
+    def calc_bmi(self): ...`],
 SportService:["child of HealthCluster",`class SportService(HealthCluster):
-    # inherits patient info and BMI
-    # adds: readiness score, calories burned,
-    #       recovery plan, water estimate`],
+    # inherits patient info and calc_bmi()
+    def readiness_level(self): ...
+    def calories_burned(self, distance, pace): ...
+    def recovery_plan(self, distance, pace): ...
+        # returns tips + water`],
 Diseases:["base · patient info + symptom questions",`class Diseases:
-    # patient information
-    # symptom questions`],
+    def __init__(self, patient_id, name, age, gender, answers): ...
+    def display_questions(self): ...   # 5 symptoms
+    def display_info(self): ...        # assessment`],
 Clinic:["child of Diseases",`class Clinic(Diseases):
     # reuses the symptom questions
-    # adds: department, triage, doctor,
-    #       appointment, fee, visit ticket
+    def pick_department(self): ...
+    def triage_level(self): ...
+    def calc_fee(self): ...
+    def book_appointment(self, day, time): ...
+    def visit_summary(self): ...
     # state kept in st.session_state`],
 HealthyFood:["abstract · says what must be done",`from abc import ABC, abstractmethod
 
@@ -843,11 +872,11 @@ class HealthyFood(ABC):
     def weight_loss_meals(self): ...`],
 nutrition:["implements HealthyFood (overriding)",`class nutrition(HealthyFood):
     def calculate_calories(self):
-        # Mifflin-St Jeor BMR x activity
+        # Mifflin-St Jeor BMR x activity (5 levels)
         ...
 
     def weight_loss_meals(self):
-        # general meal suggestions
+        # meals for each activity level
         ...`]};
 function hl(src){return src.split("\n").map(l=>{const i=l.indexOf("#"),c=i<0?l:l.slice(0,i),cm=i<0?"":l.slice(i);return esc(c).replace(/(@\w+)|\b(class|def|from|import)\b/g,(m,d,k)=>`<span class="k">${d||k}</span>`)+(cm?`<span class="c">${esc(cm)}</span>`:"")}).join("\n")}
 function showCls(c){const b=Q(".cls").find(x=>x.dataset.c==c);Q(".cls").forEach(x=>{x.classList.toggle("on",x==b);x.classList.toggle("par",!!b.dataset.p&&x.dataset.c==b.dataset.p)});$("cdx").textContent=c+" · "+CODE[c][0];$("cd").innerHTML=hl(CODE[c][1])}
