@@ -444,7 +444,7 @@ pre .k{color:var(--ac);font-weight:500}pre .c{color:var(--mut)}
  </div>
 </section>
 
-<section class="s" data-sp="3" data-pt data-t="Triage" data-n="This is how the ticket's priority is decided: points.|1 per symptom, +2 if age is 60+ or 5 and under, +2 if fever and cough together. 3+ Soon, 6+ Urgent.|Drag the age to 70 and add fever and cough: the patient jumps the queue. Demo thresholds only.">
+<section class="s" data-sp="3" data-pt data-t="Triage" data-n="This is how the ticket's priority is decided: points.|1 per symptom, +1 if age is 65+ or 5 and under, +1 if fever and cough together. 2+ Soon, 4+ Urgent.|Drag the age to 70 and add fever and cough: the patient jumps the queue. Demo thresholds only.">
  <div class="in">
   <h2>Triage</h2>
   <p class="say" style="font-size:clamp(22px,min(2.6vw,4.6vh),38px)"><span data-v="name"></span> is <span class="sc" data-b="age" data-min="1" data-max="100" data-v="age"></span> years old and reports:</p>
@@ -674,13 +674,13 @@ function calc(){
  const bmr=10*w+6.25*h-5*a+(m?5:-161),mult=[1.2,1.55,1.725][P.act],kc=bmr*mult,bmi=w/Math.pow(h/100,2);
  const sA=[10,20,30][P.act],sS=Math.round(Math.min(sl,8)/8*40),sB=(bmi>=18.5&&bmi<25?30:(bmi>=17&&bmi<30?20:10)),sc=sA+sS+sB;
  const lv=sc>=75?"High":sc>=50?"Moderate":"Low",burn=Math.round([3.5,6,8][P.act]*w*.5);
- const fc=P.sym.includes("Fever")&&P.sym.includes("Cough"),ageP=(a>=60||a<=5)?2:0,pts=N+ageP+(fc?2:0),pr=pts>=6?"Urgent":pts>=3?"Soon":"Routine";
+ const fc=P.sym.includes("Fever")&&P.sym.includes("Cough"),ageP=(a>=65||a<=5)?1:0,pts=N+ageP+(fc?1:0),pr=pts>=4?"Urgent":pts>=2?"Soon":"Routine";
  return {n,a,w,h,m,sl,N,bmr,mult,kc,bmi,sA,sS,sB,sc,lv,burn,fc,ageP,pts,pr};
 }
 let R=calc();
 const V={name:()=>R.n,age:()=>P.age,w:()=>P.w,h:()=>P.h,sleep:()=>P.sleep,He:()=>P.male?"He":"She",bmi:()=>R.bmi.toFixed(1),bmr:()=>Math.round(R.bmr),kc:()=>Math.round(R.kc),mult:()=>R.mult,actw:()=>ACT[P.act],meal:()=>MEAL[P.act],sexc:()=>P.male?"+ 5":"− 161",
  symN:()=>R.N,symWord:()=>R.N==1?"symptom":"symptoms",level:()=>R.N==0?"No symptoms reported.":R.N<3?`Some symptoms reported (${R.N}).`:`Several symptoms reported (${R.N}).`,
- sc:()=>R.sc,sA:()=>R.sA,sS:()=>R.sS,sB:()=>R.sB,lv:()=>R.lv,rec:()=>REC[R.lv],burn:()=>R.burn,ageP:()=>R.ageP,fcP:()=>R.fc?2:0,pts:()=>R.pts,pr:()=>R.pr};
+ sc:()=>R.sc,sA:()=>R.sA,sS:()=>R.sS,sB:()=>R.sB,lv:()=>R.lv,rec:()=>REC[R.lv],burn:()=>R.burn,ageP:()=>R.ageP,fcP:()=>R.fc?1:0,pts:()=>R.pts,pr:()=>R.pr};
 
 /* scrubbable numbers */
 Q(".sc").forEach(el=>{const b=el.dataset.b,min=+el.dataset.min,max=+el.dataset.max;let sx=null,sv=0;
