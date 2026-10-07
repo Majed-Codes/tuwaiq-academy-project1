@@ -1,30 +1,33 @@
 # Tuwaiq Academy – Project 1
 # Health Cluster Project
 
-A simple hospital system built with Python OOP. It has four services: Diseases, Nutrition, Sports and Clinic.
+## About
 
-## Classes
+A small hospital system built with basic Python.
+The user enters their information one time, then chooses one of four health services from a menu.
 
-- `HealthCluster` - base class (name, age, height, weight, gender) with `calc_bmi()`
-- `Diseases` - asks about symptoms and gives a quick assessment
-- `nutrition` - calculates BMR and daily calories, and suggests meals
-- `SportService` - checks run readiness, calories burned and a recovery plan
-- `Clinic` - inherits from `Diseases`; picks the department, sets the priority and books an appointment
+The goal of the project is to practice Python basics: classes, inheritance, functions, conditions, loops, lists and dictionaries.
 
-## OOP concepts used
+## Services
 
-- Inheritance and multi-level inheritance (`HealthCluster` -> `Diseases` -> `Clinic`)
-- Abstraction (`HealthyFood` abstract class)
-- Class attributes and instance attributes
-- `super()` to reuse the parent constructor
+- **Diseases** - asks about 5 symptoms and gives a quick assessment based on how many the patient has.
+- **Nutrition** - calculates BMR and daily calories from the activity level, and suggests a meal plan.
+- **Sports** - calculates BMI and a readiness score for a run, then gives calories burned, a recovery plan and how much water to drink.
+- **Clinic** - picks the right department from the symptoms, sets the priority (Routine, Soon or Urgent), books an appointment and prints a ticket with the queue number and fee.
+
+## How it is built
+
+- `HealthCluster` is the base class. It keeps the shared patient data and calculates BMI.
+- `Diseases`, `nutrition` and `SportService` inherit from `HealthCluster`.
+- `Clinic` inherits from `Diseases`, so it reuses the patient's symptoms.
+- `HealthyFood` is an abstract class that `nutrition` must follow.
 
 ## Files
 
 | File | Description |
 |---|---|
-| `Health_Cluster_Project.py` | Full project in one file (terminal version) |
+| `Health_Cluster_Project.py` | Full project in one file |
 | `app.py` | Streamlit web app |
-| `health_cluster.py` | Base class |
 | `diseases.py` | Diseases class |
 | `nutrition.py` | Nutrition class |
 | `sports.py` | Sports class |
@@ -39,12 +42,5 @@ Terminal version:
 
 Streamlit app:
 
-    pip install -r requirements.txt
+    pip install streamlit
     streamlit run app.py
-
-## Input notes (terminal version)
-
-- Gender: `male` or `female`
-- Yes/no questions: `y` or `n`
-- Activity: `sedentary`, `light`, `moderate` or `high`
-- Day and time: as shown in the list, for example `Sunday` and `9:00`
