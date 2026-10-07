@@ -445,12 +445,13 @@ pre .k{color:var(--ac);font-weight:500}pre .c{color:var(--mut)}
  </div>
 </section>
 
-<section class="s" data-sp="3" data-pt data-t="Triage" data-n="This is how the ticket's priority is decided: points.|1 per symptom, +1 if age is 65+ or 5 and under, +1 if fever and cough together. 2+ Soon, 4+ Urgent.|Drag the age to 70 and add fever and cough: the patient jumps the queue. Demo thresholds only.">
+<section class="s" data-sp="3" data-pt data-t="Triage" data-n="This is how the ticket's priority is decided: points.|1 per symptom, +1 if age is 65+ or 5 and under, +1 if fever and cough together. 2+ Soon, 4+ Urgent.|Use the age slider or click Senior · 70, then add fever and cough: the patient jumps the queue. Ages 6 to 64 add no points.">
  <div class="in">
   <h2>Triage</h2>
   <p class="say" style="font-size:clamp(22px,min(2.6vw,4.6vh),38px)"><span data-v="name"></span> is <span class="sc" data-b="age" data-min="1" data-max="100" data-v="age"></span> years old and reports:</p>
+  <div class="row" style="gap:10px"><span class="lab" style="margin-right:4px">Age</span><input type="range" id="agr" min="1" max="100" style="max-width:340px;accent-color:var(--ac)"><button class="tb sm" data-k="agepick" data-val="4">Child · 4</button><button class="tb sm" data-k="agepick" data-val="30">Adult · 30</button><button class="tb sm" data-k="agepick" data-val="70">Senior · 70</button></div>
   <div class="row symx" style="gap:10px"></div>
-  <div class="terms"><span class="term" id="tm1"><b data-v="symN"></b> symptoms</span><span class="op">+</span><span class="term" id="tm2"><b data-v="ageP"></b> age</span><span class="op">+</span><span class="term" id="tm3"><b data-v="fcP"></b> fever &amp; cough</span><span class="op">=</span><span><b data-v="pts"></b> points</span><span class="op">→</span><span class="prio" id="prio" data-v="pr"></span></div>
+  <div class="terms"><span class="term" id="tm1"><b data-v="symN"></b> <span data-v="symWord"></span></span><span class="op">+</span><span class="term" id="tm2"><b data-v="ageP"></b> age <small style="font-weight:500;opacity:.7">(65+ or ≤5)</small></span><span class="op">+</span><span class="term" id="tm3"><b data-v="fcP"></b> fever &amp; cough</span><span class="op">=</span><span><b data-v="pts"></b> points</span><span class="op">→</span><span class="prio" id="prio" data-v="pr"></span></div>
   <div class="queue" id="queue"><div class="door">Doctor</div><div class="qline"></div></div>
   <p class="hint">Urgent goes to the front, Soon waits a little, Routine waits its turn. Demo thresholds to show the logic, not a real clinical triage model.</p>
  </div>
@@ -716,11 +717,13 @@ Q(".sc").forEach(el=>{const b=el.dataset.b,min=+el.dataset.min,max=+el.dataset.m
 });
 document.addEventListener("click",e=>{const c=e.target.closest("[data-k]");if(!c)return;const k=c.dataset.k,v=c.dataset.val;
  if(k=="sym"){const i=P.sym.indexOf(v);i<0?P.sym.push(v):P.sym.splice(i,1)}
- else if(k=="insu")P.insu=!P.insu;else if(k=="actcycle")P.act=(P.act+1)%5;else if(k=="sactcycle")P.sact=(P.sact+1)%4;else if(k=="male")P.male=!P.male;else P[k]=v;
+ else if(k=="insu")P.insu=!P.insu;else if(k=="agepick")P.age=+v;else if(k=="actcycle")P.act=(P.act+1)%5;else if(k=="sactcycle")P.sact=(P.sact+1)%4;else if(k=="male")P.male=!P.male;else P[k]=v;
  render()});
 $("nm").addEventListener("input",()=>{P.name=$("nm").value;render()});
 $("slr").addEventListener("input",()=>{P.sleep=+$("slr").value;render()});
 $("slr").addEventListener("change",()=>$("slr").blur());
+$("agr").addEventListener("input",()=>{P.age=+$("agr").value;render()});
+$("agr").addEventListener("change",()=>$("agr").blur());
 $("rst").onclick=()=>{Object.assign(P,JSON.parse(JSON.stringify(DEF)));render()};
 
 let last={},lastPt="",lastTk="";
@@ -732,8 +735,8 @@ function render(){
  Q("[data-v]").forEach(e=>{const f=V[e.dataset.v];if(f){const t=String(f());if(e.textContent!==t)e.textContent=t}});
  if(document.activeElement!==$("nm")&&$("nm").value!==P.name)$("nm").value=P.name;
  sizeName();
- $("slr").value=P.sleep;
- Q("[data-k]").forEach(c=>{const k=c.dataset.k,v=c.dataset.val;if(k=="actcycle"||k=="sactcycle"||k=="male")return;c.classList.toggle("on",k=="sym"?P.sym.includes(v):k=="insu"?P.insu:P[k]===v)});
+ $("slr").value=P.sleep;$("agr").value=P.age;
+ Q("[data-k]").forEach(c=>{const k=c.dataset.k,v=c.dataset.val;if(k=="actcycle"||k=="sactcycle"||k=="male")return;c.classList.toggle("on",k=="agepick"?P.age==+v:k=="sym"?P.sym.includes(v):k=="insu"?P.insu:P[k]===v)});
  // header chip
  const pt=`${esc(R.n)} · ${P.age} · ${P.male?"M":"F"} · ${P.w} kg · ${P.h} cm`;
  if(pt!=lastPt){$("pt").innerHTML=pt;if(lastPt){$("pt").classList.add("chg");clearTimeout($("pt")._t);$("pt")._t=setTimeout(()=>$("pt").classList.remove("chg"),600)}lastPt=pt}
