@@ -31,7 +31,8 @@ The goal of the project is to practice Python basics: classes, inheritance, func
 | `nutrition.py` | Nutrition class |
 | `sports.py` | Sports class |
 | `Clinic.py` | Clinic class |
-| `config.toml` | App theme (place it inside a `.streamlit` folder to use it) |
+| `HealthCluster.py` | Base class |
+| `.streamlit/config.toml` | App theme |
 
 ## How to run
 

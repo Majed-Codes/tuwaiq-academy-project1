@@ -1,7 +1,9 @@
+import streamlit as st
+
 # Create the Diseases class
 class Diseases:
 
-    # Initialize the patient information
+    #patient information
     def __init__(self, patient_id, name, age, gender, answers):
         self.patient_id = patient_id
         self.name = name
@@ -11,29 +13,29 @@ class Diseases:
 
     # Ask the patient about different symptoms
     def display_questions(self):
-        print("Disease Assessment")
+        st.subheader("Disease Assessment")
 
-        # Store the patient's answer as True or False
-        self.answers["fever"] = input("Do you have a fever? (yes/no): ").lower() == "yes"
-        self.answers["cough"] = input("Do you have a cough? (yes/no): ").lower() == "yes"
-        self.answers["headache"] = input("Do you have a headache? (yes/no): ").lower() == "yes"
-        self.answers["fatigue"] = input("Do you feel tired or weak? (yes/no): ").lower() == "yes"
-        self.answers["pain"] = input("Do you have body pain? (yes/no): ").lower() == "yes"
+        # Store the patient's answer as true or false
+        self.answers["fever"] = st.checkbox("Do you have a fever?")
+        self.answers["cough"] = st.checkbox("Do you have a cough?")
+        self.answers["headache"] = st.checkbox("Do you have a headache?")
+        self.answers["fatigue"] = st.checkbox("Do you feel tired or weak?")
+        self.answers["pain"] = st.checkbox("Do you have body pain?")
 
     # Display patient information and assessment result
     def display_info(self):
-        print("\nAssessment completed")
+        st.success("Assessment completed")
 
         # Display basic patient information
-        print("\nPatient Information")
-        print(f"Patient ID: {self.patient_id}")
-        print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
-        print(f"Gender: {self.gender}")
+        st.subheader("Patient Information")
+        st.write(f"Patient ID: {self.patient_id}")
+        st.write(f"Name: {self.name}")
+        st.write(f"Age: {self.age}")
+        st.write(f"Gender: {self.gender}")
 
-        print("\nSymptoms")
+        st.subheader("Symptoms")
 
-        # Get the symptoms where the answer is True
+        # Get the symptoms where the answer is true
         symptoms = [
             symptom for symptom, answer in self.answers.items() if answer
         ]
@@ -41,32 +43,16 @@ class Diseases:
         # Display the reported symptoms
         if symptoms:
             for symptom in symptoms:
-                print(f"- {symptom}")
+                st.write(f"- {symptom}")
         else:
-            print("No symptoms selected.")
+            st.write("No symptoms selected.")
 
-        print("\nAssessment Result")
+        st.subheader("Assessment Result")
 
         # Determine the result based on the number of symptoms
         if len(symptoms) >= 3:
-            print("Several symptoms were reported. Please consult a healthcare professional.")
+            st.warning("Several symptoms were reported. Please consult a healthcare professional.")
         elif len(symptoms) > 0:
-            print("Some symptoms were reported.")
+            st.info("Some symptoms were reported.")
         else:
-            print("No symptoms were reported.")
-
-
-# Create a patient object
-patient = Diseases(
-    patient_id=1,
-    name="Mohammed",
-    age=27,
-    gender="Male",
-    answers={}
-)
-
-# Ask the patient about symptoms
-patient.display_questions()
-
-# Display the assessment result
-patient.display_info()
+            st.success("No symptoms were reported.")

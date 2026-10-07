@@ -1,3 +1,5 @@
+from HealthCluster import HealthCluster
+
 class SportService(HealthCluster) : # inherits from the superclass
   activity_days={ # here we have predefiend category for acticity levels
       "sedentary":"0 days",

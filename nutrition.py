@@ -82,35 +82,35 @@ class nutrition(HealthyFood): # define subclass
         }
         return meals.get(self.activity_level, meals[1])
 
-    
-print("calories calculator")
-name = input("Enter your name: ")     # user enter the needed information
-age = int(input("Enter your age: "))
-gender = input("Enter your gender (male/female): ")   
-weight = float(input("Enter your weight in kg: "))
-height = float(input("Enter your height in cm: "))
+
+if __name__ == "__main__": # only runs when you run this file by itself, not when app.py imports it
+    print("calories calculator")
+    name = input("Enter your name: ")     # user enter the needed information
+    age = int(input("Enter your age: "))
+    gender = input("Enter your gender (male/female): ")   
+    weight = float(input("Enter your weight in kg: "))
+    height = float(input("Enter your height in cm: "))
 
 
-print("Select your activity level:")
-print("1. low activity")
-print("2. Lightly active")
-print("3. Moderately active")
-print("4. Very active")
-print("5. Extra active")
+    print("Select your activity level:")
+    print("1. low activity")
+    print("2. Lightly active")
+    print("3. Moderately active")
+    print("4. Very active")
+    print("5. Extra active")
 
-activity_level = int(input("Enter your activity level (1-5): "))
+    activity_level = int(input("Enter your activity level (1-5): "))
 
-bmr, calories = nutrition(name, age, gender, weight, height, activity_level).calculate_calories()
+    bmr, calories = nutrition(name, age, gender, weight, height, activity_level).calculate_calories()
 
 
-if bmr is not None: # handle the error if the user enters wrong gender input
-    print(f"Your BMR is: {bmr:.2f} calories/day") # we use .2f so the output will be like 123.24
-    print(f"Your daily calorie needs are: {calories:.2f} calories/day")
+    if bmr is not None: # handle the error if the user enters wrong gender input
+        print(f"Your BMR is: {bmr:.2f} calories/day") # we use .2f so the output will be like 123.24
+        print(f"Your daily calorie needs are: {calories:.2f} calories/day")
 
-    meals1 = nutrition(name, age, gender, weight, height, activity_level).weight_loss_meals()
-    print(f"Recommended meals for weight_loss: ({meals1['level']}):")
-    print(meals1["meals"])
-else:
+        meals1 = nutrition(name, age, gender, weight, height, activity_level).weight_loss_meals()
+        print(f"Recommended meals for weight_loss: ({meals1['level']}):")
+        print(meals1["meals"])
+    else:
 
-    print("[error]: invalid gender input. please enter male or female")
-
+        print("[error]: invalid gender input. please enter male or female")
